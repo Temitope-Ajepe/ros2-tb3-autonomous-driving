@@ -1,0 +1,12 @@
+Detector:
+python3 -m tb3_lane_follow.lane_detector_node --ros-args -p image_topic:=/camera/image_rect -p compressed:=false
+then, live:
+ros2 param set /lane_detector roi_src "[0.05, 0.55, 0.95, 0.55, 1.0, 0.95, 0.0, 0.95]"
+ros2 param set /lane_detector lane_width_px 195.0
+ros2 param set /lane_detector lookahead_y 0.75
+Controller (stable run, 3 full laps):
+python3 -m tb3_lane_follow.lane_controller_node --ros-args -p cmd_vel_topic:=/control/cmd_vel -p max_linear:=0.05 -p min_linear:=0.03
+
+FINAL (full track completed, 16 Nov):
+ros2 param set /lane_detector white_hi "[179, 40, 255]"
+Controller: add -p kp:=1.2
