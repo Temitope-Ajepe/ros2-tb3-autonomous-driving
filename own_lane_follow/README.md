@@ -1,4 +1,4 @@
-# Own camera-only lane follower (TurtleBot3 Burger)
+# Camera lane follower (TurtleBot3 Burger)
 
 Classical computer-vision lane following: yellow line on the left, white line on the right.
 Camera only, no lidar. Two files:
